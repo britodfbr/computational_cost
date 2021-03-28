@@ -1,3 +1,7 @@
+# Computational Cost
+
+---
+Computing computational cost process on Python coding.
 
 
 |function |time count|
