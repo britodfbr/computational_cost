@@ -22,6 +22,11 @@ def for_pure(n: int=num):
         s += 1
     return s
 
+def for_enumerate(n: int=num):
+    s = 0
+    for cont in enumerate(range(n)):
+        s += 1
+    return s
 
 def for_loop_with_increment(n: int=num):
     s = 0
@@ -71,6 +76,7 @@ def metrics_performance(func: Function):
 def run():
     metrics_performance(while_loop)
     metrics_performance(for_pure)
+    metrics_performance(for_enumerate)
     metrics_performance(for_loop_with_increment)
     metrics_performance(for_loop_with_conditional)
     metrics_performance(for_loop_with_increment_conditional)
