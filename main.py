@@ -1,72 +1,14 @@
-from timeit import timeit
+
 from typing import Callable
-import numpy as np
-import pandas as pd
-"""
-Sum sequential big numbers from 0 to n-1 in different ways, and calculate taked time on performance.
-"""
+from timeit import timeit
+from loops import (while_loop, for_enumerate, for_pure, 
+    for_loop_with_increment, for_loop_with_conditional,
+    for_loop_with_increment_conditional, sum_builtin,
+    sum_numpy, sum_pandas, sum_mathematically)
+
+
+__author__ = '@britodfbr'
 Function = Callable
-num = 10_000_000
-
-def while_loop(n: int=num):
-    s, cont = 0, 0
-    while cont < n:
-        s += 1
-        cont += 1
-    return s
-
-
-def for_pure(n: int=num):
-    s = 0
-    for cont in range(n):
-        s += 1
-    return s
-
-def for_enumerate(n: int=num):
-    s = 0
-    for cont in enumerate(range(n)):
-        s += 1
-    return s
-
-def for_loop_with_increment(n: int=num):
-    s = 0
-    for cont in range(n):
-        s+=1
-        cont += 1
-    return s
-
-
-def for_loop_with_conditional(n: int=num):
-    s = 0
-    for cont in range(n):
-        if cont < n:
-            s += 1
-    return s
-
-
-def for_loop_with_increment_conditional(n:int=num):
-    s = 0
-    for cont in range(n):
-        if cont < n:
-            s+=1
-            cont+=1
-    return s
-
-
-def sum_builtin(n: int=num):
-    return sum(range(n))
-
-
-def sum_numpy(n: int=num):
-    return np.sum(np.arange(n))
-
-
-def sum_pandas(n: int=num):
-    return pd.Series(range(n)).sum()
-
-
-def sum_mathematically(n: int=num):
-    return (n * (n -1)) // 2
 
 
 def metrics_performance(func: Function):
@@ -84,7 +26,6 @@ def run():
     metrics_performance(sum_numpy)
     metrics_performance(sum_pandas)    
     metrics_performance(sum_mathematically)
-
 
 
 if __name__ == "__main__":
